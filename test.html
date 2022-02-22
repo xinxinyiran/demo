@@ -27,7 +27,11 @@ function callFlutter(msg){
     Toast.postMessage(msg);
 }
 function callJs(msg) {
-    document.getElementById('name').value = msg;
+    if（msg == "undefined"）{
+        document.getElementById('name').value = "";
+    } else {
+        document.getElementById('name').value = msg;
+    }
 }
 </script>
 </body>
