@@ -22,7 +22,97 @@
     <h3><input type="text" id="name" name="name" size="10" minlength = 8 onClick="callFlutter('Js的参数')" style="width:200px; height=300px;" readonly="readonly"></h3>
 <body>
 <p id="demo"></p>
-    <tex>i\hbar\frac{\partial}{\partial t}\Psi(\vec x,t) = -\frac{\hbar}{2m}\nabla^2\Psi(\vec x,t)+ V(\vec x)\Psi(\vec x,t)</tex>
+    <math>
+      <mrow>
+        <mi>x</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mrow>
+              <mo>-</mo>
+              <mi>b</mi>
+            </mrow>
+            <mo>&PlusMinus;</mo>
+            <msqrt>
+              <mrow>
+                <msup>
+                  <mi>b</mi>
+                  <mn>2</mn>
+                </msup>
+                <mo>-</mo>
+                <mrow>
+                  <mn>4</mn>
+                  <mo>&InvisibleTimes;</mo>
+                  <mi>a</mi>
+                  <mo>&InvisibleTimes;</mo>
+                  <mi>c</mi>
+                </mrow>
+              </mrow>
+            </msqrt>
+          </mrow>
+          <mrow>
+            <mn>2</mn>
+            <mo>&InvisibleTimes;</mo>
+            <mi>a</mi>
+          </mrow>
+        </mfrac>
+      </mrow>
+      </math>
+      <math>
+        <munderover >
+          <mo> &int; </mo>
+          <mn> 0 </mn>
+          <mi> 5 </mi>
+        </munderover>
+        <msup>
+          <mi>x</mi>
+          <mn>2</mn>
+       </msup>
+        <mo>&sdot;</mo>
+        <mi>&dd;</mi><mi>x</mi>
+        <mo>=</mo>
+        <mo>[</mo>
+        <mfrac>
+          <mn>1</mn>
+          <mi>3</mi>
+       </mfrac>
+       <msup>
+          <mi>x</mi>
+          <mn>3</mn>
+       </msup>
+       <msubsup>
+          <mo>]</mo>
+          <mn>0</mn>
+          <mn>5</mn>
+       </msubsup>
+       <mo>=</mo>
+       <mfrac>
+          <mn>125</mn>
+          <mi>3</mi>
+       </mfrac>
+       <mo>-</mo>
+       <mn>0</mn>
+       <mo>=</mo>
+       <mfrac>
+          <mn>125</mn>
+          <mi>3</mi>
+       </mfrac>
+      </math>
+      <math>
+        <msup>
+          <mo>sin</mo>
+          <mn>2</mn>
+        </msup>
+        <mo>&theta;</mo>
+        <mo>+</mo>
+        <msup>
+          <mo>cos</mo>
+          <mn>2</mn>
+        </msup>
+        <mo>&theta;</mo>
+        <mo>=</mo>
+        <mn>1</mn>
+      </math>
 <script>
 function callFlutter(msg){
     Toast.postMessage(msg);
