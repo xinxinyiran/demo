@@ -1,6 +1,17 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>MathJax v3 with TeX input and HTML output</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+    MathJax = {
+      tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <title>html</title>
 </head>
 
@@ -11,7 +22,12 @@
 <h5>HTML 5</h5>
 <h6>HTML 6</h6>
 <h3>Ruby Support:</h3>
-    
+<span id="span_id">你好</span>
+<p>
+    \begin{align}
+    \sqrt{8}
+    \end{align}
+    </p>
 <p>
     <ruby>
         漢<rt>かん</rt>
@@ -19,16 +35,12 @@
     </ruby>
     &nbsp;is Japanese Kanji.
 </p>
-    <p>\[\sqrt{5}\]</p>
     <h3><input type="text" id="name" name="name" size="10" minlength = 8 onClick="callFlutter('Js的参数')" style="width:200px; height=300px;" readonly="readonly"></h3>
     <h3><input type="text" id="name" name="name" size="10" minlength = 8 value="n<sup>2</sup>" style="width:200px; height=300px;" ></h3>
     <h6>很好</h6>
     <h3>MathML Support:</h3>
      n<sup>2</sup>
     <sqrt>4</sqrt>
-    <span id="span_id">
-  你好
-</span>
 </span>
 <body>
 <p id="demo"></p>
@@ -36,13 +48,37 @@
 function callFlutter(msg){
     Toast.postMessage(msg);
 }
+const msg1='\sqrt{52}'
 function callJs(msg) {
-    document.getElementById('name').value = msg;
-    
-    document.getElementById("span_id").innerHTML = msg;
+    alert("sometext");
+    output = document.getElementById('span_id');
+    output.innerHTML = '';
+    MathJax.texReset();
+      var options = MathJax.getMetricsFor(output);
+      MathJax.tex2chtmlPromise('\\'+msg, options).then(function (node) {
+        
+        output.appendChild(node);
+        MathJax.startup.document.clear();
+        MathJax.startup.document.updateDocument();
+      }).catch(function (err) {
+        //
+        //  If there was an error, put the message into the output instead
+        //
+        output.appendChild(document.createElement('pre')).appendChild(document.createTextNode(err.message));
+      }).then(function () {
+        //
+        //  Error or not, re-enable the display and render buttons
+        //
+      });
+    // document.getElementById('name').value = msg;
+    // document.getElementById("span_id").innerHTML ='\\begin{align}'+'\\'+'\sqrt{52}'+'\\end{align}';
+
+    console.log('输入信息：'+{msg});
 }
+
+const msg='\sqrt{33}'
+document.getElementById("span_id").innerHTML ='\\begin{align}'+'\\'+msg+'\\end{align}'
 </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </body>
 
 </html>
